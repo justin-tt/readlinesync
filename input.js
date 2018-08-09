@@ -4,19 +4,18 @@ const readline = require('readline');
 
 function getResponse() {
 
-	const rl = readline.createInterface({
-		input: process.stdin,
-		output: process.stdout
-	});
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
 
-	return new Promise(resolve => {
-		rl.question(`What's up?`, (answer) => {
-			console.log(`Thank you for: ${answer}`);
-			rl.close();
-			resolve(answer);
-		})
-	})
-
+  return new Promise(resolve => {
+    rl.question(`What's up?`, (answer) => {
+      console.log(`Thank you for: ${answer}`);
+      rl.close();
+      resolve(answer);
+    })
+  })
 }
 
 async function main() {
