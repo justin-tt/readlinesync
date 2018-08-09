@@ -19,9 +19,15 @@ function getResponse() {
 }
 
 async function main() {
+  console.log('before');
 	let response = await getResponse();
 	console.log(`response was`, response);
 	console.log('after');
+  
+  console.log('before2');
+	response = await getResponse();
+	console.log(`response was`, response);
+	console.log('after2');
 }
 
 // this pattern doesn't work because since main is asynchronous, we'll console.log('after')
@@ -31,7 +37,6 @@ console.log('before');
 main();
 console.log('after');
 */
-console.log('before');
 main();
 // to have them in order, we'll need to put the console.log('after') INSIDE
 // the async function!
@@ -40,3 +45,4 @@ main();
 // this doesn't work either!!
 
 // I think this is where generators come in...
+// actually maybe not? could just simply stack everything into main() and get it working...
